@@ -17,7 +17,7 @@ ENV YARN_RESOURCEMANAGER_USER="root"
 ENV YARN_NODEMANAGER_USER="root"
 
 RUN wget https://github.com/jbw/build-hadoop/releases/download/3.0.3-ubuntu/hadoop-3.0.3.tar.gz && \
-    tar -xzvf hadoop-3.3.0.tar.gz && \
+    tar -xzvf hadoop-3.0.3.tar.gz && \
     mv hadoop-3.0.3 /usr/local/hadoop && \ 
     rm hadoop-3.0.3.tar.gz
 
@@ -51,9 +51,9 @@ RUN /usr/local/hadoop/bin/hdfs namenode -format
 
 RUN sh -c service ssh start; bash
 
-CMD ["~/start.sh"]
+#CMD ["~/start.sh"]
 
-#CMD [ "sh", "-c", "service ssh start; bash "]
+CMD [ "sh", "-c", "service ssh start; bash "]
 
 # Hdfs ports
 EXPOSE 50010 50020 50070 50075 50090
